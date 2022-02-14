@@ -24,4 +24,7 @@ app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/player", player)
 
+
+
+
 app.listen(PORT, console.log(`Server is listening on port ${PORT}`));

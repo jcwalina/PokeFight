@@ -8,7 +8,8 @@ const {
 
 const api = express.Router()
 
-api.route("/").get(getPlayer)
-api.route("/:id").put(updatePlayer).get(getOnePlayer)
+api.get('/', getPlayer)
+api.get('/:id', getOnePlayer)
+api.put('/:id', updatePlayer)
 
 module.exports = api 

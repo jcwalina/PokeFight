@@ -1,11 +1,11 @@
-const player = require("../models/User");                 //User is here called Player, cause in userRouter.js we already got a get method, but this one is only for verification purpos. 
+const Player = require("../models/User");                 //User is here called Player, cause in userRouter.js we already got a get method, but this one is only for verification purpos. 
                                                          //In this component we declare functions for .get, .get:id and .post Players Stats 
                                                          //In API dir we define the route with its methods
 
 
 const getPlayer = async (req, res, next) => {        //to display all Player 
     try {
-        const player = await player.find()
+        const player = await Player.find()
         res.json({
             data: player,
             msg: "show all Users",
@@ -18,7 +18,7 @@ const getPlayer = async (req, res, next) => {        //to display all Player
 const getOnePlayer = async (req, res, next) => {      //to display one specific Player
     try {
         const { id } = req.params
-        const player = await player.findById(id)
+        const player = await Player.findById(id)
         res.json({
             data: player,
         })
@@ -32,7 +32,7 @@ const updatePlayer = async (req, res) => {            //to update STATS of one s
         const { id } = req.params
         const { gamesPlayed, gamesWon } = req.body
 
-        const player = await player.findByIdAndUpdate(
+        const player = await Player.findByIdAndUpdate(
             id,
             {
                 gamesPlayed,
